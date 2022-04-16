@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/svg+xml" href="https://games.yoro.dev/favicon.svg" />
+  <title>Osu! Web</title>
+
+  <style>
+    body {
+      background-color: #292929;
+      margin: 0;
+      padding: 0;
+      overflow-y: hidden;
+      /*cursor: none;*/
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100vh;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    #beatmaps {
+      display: none;
+      /* gap: 8px; */
+      width: 100%;
+      overflow-y: auto;
+      /* flex-direction: column;
+      align-items: center;
+      justify-content: center; */
+      /* height: 100vh; */
+      text-align: center;
+    }
+
+    .beatmap {
+      margin: 8px auto;
+      box-sizing: border-box;
+      display: flex;
+      padding: 8px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 600px;
+      width: calc(100% - 10px);
+      /*height: 100%;*/
+      min-height: 48px;
+      background-color: #c4c4c467;
+      border-radius: 4px;
+      box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      transition: all .5s ease-in;
+      opacity: 0;
+    }
+
+    .beatmap:hover {
+      background-color: #c4c4c4AA;
+    }
+
+    .maps {
+      /* display: flex; */
+      text-align: center;
+      /* flex-direction: row;
+      align-items: center;
+      justify-content: center; */
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    .map {
+      display: inline-block;
+      padding: 4px;
+      margin: 4px;
+      border-radius: 4px;
+      background-color: #c4c4c4AA;
+      /* //cursor: pointer; */
+    }
+
+    .title {
+      width: 80%;
+      text-align: center;
+    }
+
+    .main {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    #logo {
+      height: 300px;
+      /* border: 1px solid white; */
+    }
+
+    #cursor {
+      /* display: block; */
+      position: fixed;
+      top:0;
+      left:0;
+      z-index: 1000;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+  <img src="./img/cursor.png" style="width: 64px" alt="" id="cursor">
+  <div class="main">
+    <div id="logo"></div>
+
+    <div id="beatmaps">
+    </div>
+  </div>
+
+  <div style="position: absolute; top: 20px; left: 20px;">
+    <button id="pause" style="display:none" title="You can also press P anytime" onclick="pauseGame()">Pause</button>
+    <button id="reset" style="display:none" title="You can also press R anytime" onclick="resetBeatmap()">Reset</button>
+    <button id="update" style="display:none" onclick="getBeatmaps()">Update Beatmap List</button>
+    <button id="menu" style="display:none" onclick="toMenu()">To Menu</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/p5.min.js" integrity="sha512-NxocnqsXP3zm0Xb42zqVMvjQIktKEpTIbCXXyhBPxqGZHqhcOXHs4pXI/GoZ8lE+2NJONRifuBpi9DxC58L0Lw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.1/addons/p5.sound.min.js" integrity="sha512-WzkwpdWEMAY/W8WvP9KS2/VI6zkgejR4/KTxTl4qHx0utqeyVE0JY+S1DlMuxDChC7x0oXtk/ESji6a0lP/Tdg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  
+  <script src="./main.js"></script>
+  <!-- <script src="webgl.js"></script> -->
+</body>
+
+</html>
